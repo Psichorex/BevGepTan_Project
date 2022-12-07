@@ -11,20 +11,15 @@
 #     language: python
 #     name: python3
 # ---
+import streamlit as st
 
 import numpy as np
 
 from sklearn.linear_model import Lasso
 
-from sklearn.model_selection import train_test_split, cross_val_score, cross_validate
+from sklearn.model_selection import train_test_split, cross_validate
 
 import pandas as pd
-
-from sklearn.metrics import mean_squared_error
-
-import streamlit as st
-
-from sklearn.svm import SVR
 
 database = pd.read_csv('fifa_23_280922.csv') 
 
