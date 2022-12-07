@@ -21,6 +21,8 @@ from sklearn.model_selection import train_test_split, cross_validate
 
 import pandas as pd
 
+import matplotlib.pyplot as plt
+
 database = pd.read_csv('fifa_23_280922.csv') 
 
 database = database.apply(lambda x: pd.to_numeric(x, errors='coerce')).dropna(axis=1, how='all')
@@ -39,9 +41,22 @@ y.head()
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state = 42)
 
-lasso = Lasso(max_iter=10000, tol= 0.001, alpha = 1.0)
+alphas = np.linspace(0.01,500,100)
+lasso = Lasso(max_iter=20000, tol= 0.001, alpha = 2.0)
+coefs = []
+for a in alphas:
+    lasso.set_params(alpha=a)
+    lasso.fit(X_train, y_train)
+    coefs.append(lasso.coef_)
 
-lasso.fit(X_train, y_train)
+ax = plt.gca()
+
+ax.plot(alphas, coefs)
+ax.set_xscale('log')
+plt.axis('tight')
+plt.xlabel('alpha')
+plt.ylabel('Standardized Coefficients')
+plt.title('Lasso coefficients as a function of alpha')
 
 y_pred = lasso.predict(X_test)
 
