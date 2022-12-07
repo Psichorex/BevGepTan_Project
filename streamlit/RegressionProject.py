@@ -51,7 +51,6 @@ st.dataframe(y_pred)
 
 crossVal = cross_validate(lasso, X, y, cv=10, return_train_score=True)
 
-st.markdown('Model data: ')
 st.markdown('Train Score: ')  
 st.markdown(np.average(crossVal['train_score']))
 st.markdown('Test Score: ')
