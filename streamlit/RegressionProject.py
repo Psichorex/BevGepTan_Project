@@ -41,7 +41,7 @@ y.head()
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state = 42)
 
-lasso = Lasso(max_iter=20000, tol= 0.001, alpha = 2.0)
+lasso = Lasso(max_iter=10000, tol= 0.001, alpha = 1.0)
 
 lasso.fit(X_train, y_train)
 
