@@ -53,6 +53,6 @@ crossVal = cross_validate(lasso, X, y, cv=10, return_train_score=True)
 
 st.markdown('Model data: ')
 st.markdown('Train Score: ')  
-np.average(crossVal['train_score'])
+st.markdown(np.average(crossVal['train_score']))
 st.markdown('Test Score: ')
-np.average(crossVal['test_score'])
+st.markdown(np.average(crossVal['test_score']))
