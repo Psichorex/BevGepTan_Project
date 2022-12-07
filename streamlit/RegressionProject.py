@@ -46,6 +46,7 @@ lasso.fit(X_train, y_train)
 y_pred = lasso.predict(X_test)
 
 st.markdown('Prediction based on X_test: ')
+X_test = X_test.to_numpy() 
 st.markdown(X_test)
 
 st.markdown('Predictions: ')
