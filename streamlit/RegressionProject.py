@@ -49,7 +49,7 @@ st.markdown('Prediction based on X_test: ')
 
 st.dataframe(X_test)
 
-st.markdown('Predictions: ')
+st.markdown('Predictions on player: ')
 
 st.dataframe(y_pred)
 
