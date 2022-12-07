@@ -47,14 +47,10 @@ y_pred = lasso.predict(X_test)
 
 st.markdown('Predictions: ')
 
-y_pred
+st.markdown(y_pred)
 
 crossVal = cross_validate(lasso, X, y, cv=10, return_train_score=True)
 
-print(crossVal)
-
-print(np.average(crossVal['train_score']))
-
-print(np.average(crossVal['test_score']))
-
-
+st.markdown('Model data: ')
+st.markdown('Train Score: ' + np.average(crossVal['train_score']))
+st.markdown('Test Score: ' + np.average(crossVal['test_score']))
