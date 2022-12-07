@@ -45,6 +45,8 @@ lasso.fit(X_train, y_train)
 
 y_pred = lasso.predict(X_test)
 
+st.markdown('Predictions: ')
+
 y_pred
 
 crossVal = cross_validate(lasso, X, y, cv=10, return_train_score=True)
